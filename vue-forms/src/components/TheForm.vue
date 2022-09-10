@@ -6,7 +6,13 @@
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" />
+      <input
+        id="age"
+        name="age"
+        type="number"
+        v-model="userAge"
+        ref="ageInput"
+      />
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
@@ -57,11 +63,16 @@ export default {
   data() {
     return {
       userName: "",
+      userAge: null,
     };
   },
   methods: {
     submitForm() {
       console.log("UserName:" + this.userName);
+      this.userName = "";
+      console.log(this.userAge + 5);
+      this.userAge = null;
+      console.log("age" + this.$refs.ageInput.value + 5);
     },
   },
 };
